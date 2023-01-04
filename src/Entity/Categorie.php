@@ -26,6 +26,11 @@ class Categorie
         $this->biens = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->nomCategorie;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
