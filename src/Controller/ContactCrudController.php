@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Contact;
-use App\Form\Contact1Type;
 use App\Repository\ContactRepository;
+use App\Form\ContactType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,7 +25,7 @@ class ContactCrudController extends AbstractController
     public function new(Request $request, ContactRepository $contactRepository): Response
     {
         $contact = new Contact();
-        $form = $this->createForm(Contact1Type::class, $contact);
+        $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -51,7 +51,7 @@ class ContactCrudController extends AbstractController
     #[Route('/{id}/edit', name: 'app_contact_crud_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Contact $contact, ContactRepository $contactRepository): Response
     {
-        $form = $this->createForm(Contact1Type::class, $contact);
+        $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -69,7 +69,7 @@ class ContactCrudController extends AbstractController
     #[Route('/{id}', name: 'app_contact_crud_delete', methods: ['POST'])]
     public function delete(Request $request, Contact $contact, ContactRepository $contactRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$contact->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $contact->getId(), $request->request->get('_token'))) {
             $contactRepository->remove($contact, true);
         }
 

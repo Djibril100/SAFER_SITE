@@ -28,21 +28,18 @@
 	</head>
 	<body>
 		{# Recherche #}
-		{{ include('layouts/parties/recherche.html.twig') }}
+		{#}	{{ include('layouts/parties/recherche.html.twig') }} #}
 		{# Menu #}
 		{{ include('layouts/parties/nav.html.twig') }}
 
-		{% block javascripts %}
-			{{ encore_entry_script_tags('app') }}
+			{% block javascripts %}
+		{{ encore_entry_script_tags('app') }}
+		{% endblock %}{% block body %}
 		{% endblock %}
-		{% block body %}{% endblock %}
 
-		{# Recherche #}
-		{{ include('layouts/parties/footer.html.twig') }}
-		{# Retour En Haut #}
-		{{ include('layouts/parties/retourEnHaut.html.twig') }}
-		{# Vendor JS Files #}
-		<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		{# Recherche #}{{ include('layouts/parties/footer.html.twig') }}
+		{# Retour En Haut #}{{ include('layouts/parties/retourEnHaut.html.twig') }}
+		{# Vendor JS Files #}<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"> </script>
 		<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 		<script src="assets/vendor/php-email-form/validate.js"></script>
 

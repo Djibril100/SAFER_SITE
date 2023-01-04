@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Categorie;
-use App\Form\Categorie1Type;
 use App\Repository\CategorieRepository;
+use App\Form\CategorieType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,11 +21,13 @@ class CategorieCrudController extends AbstractController
         ]);
     }
 
+
+
     #[Route('/new', name: 'app_categorie_crud_new', methods: ['GET', 'POST'])]
     public function new(Request $request, CategorieRepository $categorieRepository): Response
     {
         $categorie = new Categorie();
-        $form = $this->createForm(Categorie1Type::class, $categorie);
+        $form = $this->createForm(CategorieType::class, $categorie);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -51,7 +53,7 @@ class CategorieCrudController extends AbstractController
     #[Route('/{id}/edit', name: 'app_categorie_crud_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Categorie $categorie, CategorieRepository $categorieRepository): Response
     {
-        $form = $this->createForm(Categorie1Type::class, $categorie);
+        $form = $this->createForm(CategorieType::class, $categorie);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -69,7 +71,7 @@ class CategorieCrudController extends AbstractController
     #[Route('/{id}', name: 'app_categorie_crud_delete', methods: ['POST'])]
     public function delete(Request $request, Categorie $categorie, CategorieRepository $categorieRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$categorie->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $categorie->getId(), $request->request->get('_token'))) {
             $categorieRepository->remove($categorie, true);
         }
 

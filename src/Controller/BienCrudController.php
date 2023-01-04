@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Bien;
-use App\Form\Bien1Type;
 use App\Repository\BienRepository;
+use App\Form\BienType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,7 +25,7 @@ class BienCrudController extends AbstractController
     public function new(Request $request, BienRepository $bienRepository): Response
     {
         $bien = new Bien();
-        $form = $this->createForm(Bien1Type::class, $bien);
+        $form = $this->createForm(BienType::class, $bien);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -51,7 +51,7 @@ class BienCrudController extends AbstractController
     #[Route('/{id}/edit', name: 'app_bien_crud_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Bien $bien, BienRepository $bienRepository): Response
     {
-        $form = $this->createForm(Bien1Type::class, $bien);
+        $form = $this->createForm(BienType::class, $bien);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -69,7 +69,7 @@ class BienCrudController extends AbstractController
     #[Route('/{id}', name: 'app_bien_crud_delete', methods: ['POST'])]
     public function delete(Request $request, Bien $bien, BienRepository $bienRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$bien->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $bien->getId(), $request->request->get('_token'))) {
             $bienRepository->remove($bien, true);
         }
 
