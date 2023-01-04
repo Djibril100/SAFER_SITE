@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<title>Bien index</title>
+
+{% block body %}
+    <h1>Bien index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Reference</th>
+                <th>Intitule</th>
+                <th>Descriptif</th>
+                <th>Localisation</th>
+                <th>Surface</th>
+                <th>Prix</th>
+                <th>Type</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for bien in biens %}
+            <tr>
+                <td>{{ bien.id }}</td>
+                <td>{{ bien.reference }}</td>
+                <td>{{ bien.intitule }}</td>
+                <td>{{ bien.descriptif }}</td>
+                <td>{{ bien.localisation }}</td>
+                <td>{{ bien.surface }}</td>
+                <td>{{ bien.prix }}</td>
+                <td>{{ bien.type }}</td>
+                <td>
+                    <a href="{{ path('app_bien_crud_show', {'id': bien.id}) }}">show</a>
+                    <a href="{{ path('app_bien_crud_edit', {'id': bien.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_bien_crud_new') }}">Create new</a>
+{% endblock %}

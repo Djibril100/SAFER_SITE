@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+
+<title>New Bien</title>
+
+{% block body %}
+    <h1>Create new Bien</h1>
+
+    {{ include('bien_crud/_form.html.twig') }}
+
+    <a href="{{ path('app_bien_crud_index') }}">back to list</a>
+{% endblock %}
