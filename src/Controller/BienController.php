@@ -22,10 +22,11 @@ class BienController extends AbstractController
     }
 
     #[Route('/{id}/show', name: 'app_bien_show', methods: ['GET'])]
-    public function show(Bien $bien): Response
+    public function show(Bien $bien, CategorieRepository $rep): Response
     {
 
         return $this->render('bien/partials/show.html.twig', [
+            'categories' => $rep->findAll(),
             'bien' => $bien,
 
         ]);
