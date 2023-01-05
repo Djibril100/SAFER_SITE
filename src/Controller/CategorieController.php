@@ -22,7 +22,7 @@ class CategorieController extends AbstractController
     public function show(Categorie $categorie, categorieRepository $rep): Response
     {
         $categories = $rep->findAll();
-        return $this->render('categorie/index.html.twig', [
+        return $this->render('categorie/partials/show.html.twig', [
             'categorie' => $categorie,
             'categories' => $categories
         ]);
