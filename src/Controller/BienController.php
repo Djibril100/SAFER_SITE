@@ -7,14 +7,16 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Bien;
 use App\Repository\BienRepository;
+use App\Repository\CategorieRepository;
 
 class BienController extends AbstractController
 {
     #[Route('/biens', name: 'app_bien')]
-    public function index(BienRepository $bienRepository): Response
+    public function index(BienRepository $bienRepository, CategorieRepository $rep): Response
     {
         return $this->render('bien/index.html.twig', [
             'current_menu' => 'biens',
+            'categories' => $rep->findAll(),
             'biens' => $bienRepository->findAll()
         ]);
     }
@@ -22,8 +24,10 @@ class BienController extends AbstractController
     #[Route('/{id}/show', name: 'app_bien_show', methods: ['GET'])]
     public function show(Bien $bien): Response
     {
+
         return $this->render('bien/partials/show.html.twig', [
             'bien' => $bien,
+
         ]);
     }
 }

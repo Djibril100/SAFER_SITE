@@ -1,0 +1,14 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %}Safer Biens
+{% endblock %}
+
+{% block body %}
+	<main
+		id="main">
+		{#Intro Single #}
+		{{ include('categorie/partials/single.html.twig')}}
+		{#Affichage des Biens #}
+		{{ include('categorie/partials/show.html.twig')}}
+	</main>
+{% endblock %}

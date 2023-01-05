@@ -15,7 +15,9 @@
 						</div>
 						<div class="card-body-a">
 							<div class="price-box d-flex">
-								<span class="price-a">{{ bien.type }}</span>
+								<span class="price-a">{{ bien.type }}
+									| £
+									{{ bien.prix }}</span>
 							</div>
 							<a href="{{path('app_bien_show',{id:bien.id})}}" class="link-a">Cliquer pour voir les details
 								<span class="bi bi-chevron-right"></span>
@@ -25,7 +27,7 @@
 							<ul class="card-info d-flex justify-content-around">
 								<li>
 									<h4 class="card-info-title"></h4>
-									<span>{{ bien.surface }}m
+									<span>{{ bien.surface }}
 
 									</span>
 								</li>
