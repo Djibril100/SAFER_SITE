@@ -1,8 +1,11 @@
-{% extends 'layouts/base.html.twig' %}
+{#{% extends 'layouts/base.html.twig' %}#}
 
 {% block title %}Safer - Accueil
 {% endblock %}
 
 {% block body %}
-	{{include('home/parties/section.html.twig')}}
+	<main id="main">
+		{{include('home/parties/section.html.twig')}}
+		{{include('home/parties/show.html.twig')}}
+	</main>
 {% endblock %}
