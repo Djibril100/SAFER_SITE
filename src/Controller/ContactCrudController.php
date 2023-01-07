@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/contact/crud')]
+#[Route('admin/contact')]
 class ContactCrudController extends AbstractController
 {
     #[Route('/', name: 'app_contact_crud_index', methods: ['GET'])]

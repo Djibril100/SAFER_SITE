@@ -10,7 +10,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/bien/crud')]
+
+#[Route('admin/bien')]
 class BienCrudController extends AbstractController
 {
     #[Route('/', name: 'app_bien_crud_index', methods: ['GET'])]
