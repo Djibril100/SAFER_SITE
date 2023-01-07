@@ -20,7 +20,7 @@ class BienController extends AbstractController
         $biens = $paginator->paginate(
             $biens,
             $request->query->getInt('page', 1), /*page number*/
-            limit: 2
+            limit: 6
         );
         return $this->render('bien/index.html.twig', [
             'current_menu' => 'biens',
