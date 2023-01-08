@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\BienRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: BienRepository::class)]
 class Bien
@@ -13,27 +14,51 @@ class Bien
     #[ORM\Column]
     private ?int $id = null;
 
+    /**
+     * @Assert\NotBlank
+     */
     #[ORM\Column(length: 15)]
     private ?string $reference = null;
 
+    /**
+     * @Assert\NotBlank
+     */
     #[ORM\Column(length: 200)]
     private ?string $intitule = null;
 
+    /**
+     * @Assert\NotBlank
+     */
     #[ORM\Column(length: 200)]
     private ?string $descriptif = null;
 
+    /**
+     * @Assert\NotBlank
+     */
     #[ORM\Column(length: 10)]
     private ?string $localisation = null;
 
+    /**
+     * @Assert\NotBlank
+     */
     #[ORM\Column(length: 10)]
     private ?string $surface = null;
 
+    /**
+     * @Assert\NotBlank
+     */
     #[ORM\Column(length: 15)]
     private ?string $prix = null;
 
+    /**
+     * @Assert\NotBlank
+     */
     #[ORM\Column(length: 20)]
     private ?string $type = null;
 
+    /**
+     * @Assert\NotBlank
+     */
     #[ORM\ManyToOne(inversedBy: 'biens')]
     private ?Categorie $categorie = null;
 
@@ -41,6 +66,7 @@ class Bien
     {
         return $this->id;
     }
+
 
     public function getReference(): ?string
     {

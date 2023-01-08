@@ -11,6 +11,7 @@ use App\Repository\CategorieRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 
+
 class BienController extends AbstractController
 {
     #[Route('/biens', name: 'app_bien')]
@@ -35,7 +36,7 @@ class BienController extends AbstractController
 
         return $this->render('bien/partials/show.html.twig', [
             'categories' => $rep->findAll(),
-            'bien' => $bien,
+            'bien' => $bien
 
         ]);
     }

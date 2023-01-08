@@ -9,16 +9,23 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 
 #[Route('admin/bien')]
 class BienCrudController extends AbstractController
 {
     #[Route('/', name: 'app_bien_crud_index', methods: ['GET'])]
-    public function index(BienRepository $bienRepository): Response
+    public function index(BienRepository $bienRepository, PaginatorInterface $paginator, Request $request): Response
     {
+        $biens = $bienRepository->findAll();
+        $biens = $paginator->paginate(
+            $biens,
+            $request->query->getInt('page', 1), /*page number*/
+            limit: 5
+        );
         return $this->render('bien_crud/index.html.twig', [
-            'biens' => $bienRepository->findAll(),
+            'biens' => $biens,
         ]);
     }
 
