@@ -17,7 +17,7 @@
 				</li>
 
 				<li class="nav-item">
-					<a class="nav-link " href="#">About</a>
+					<a class="nav-link {% if current_menu is defined and current_menu == 'about' %} active {% endif %}" href="{{ path('app_about') }}">A propos</a>
 				</li>
 
 				<li class="nav-item">
