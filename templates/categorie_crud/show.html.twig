@@ -3,24 +3,24 @@
 <title>Categorie</title>
 
 {% block body %}
-    <h1>Categorie</h1>
+	<h1>Categorie</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ categorie.id }}</td>
-            </tr>
-            <tr>
-                <th>NomCategorie</th>
-                <td>{{ categorie.nomCategorie }}</td>
-            </tr>
-        </tbody>
-    </table>
+	<table class="table table-striped table-hover">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ categorie.id }}</td>
+			</tr>
+			<tr>
+				<th>NomCategorie</th>
+				<td>{{ categorie.nomCategorie }}</td>
+			</tr>
+		</tbody>
+	</table>
 
-    <a href="{{ path('app_categorie_crud_index') }}">back to list</a>
+	<a href="{{ path('app_categorie_crud_index') }}">back to list</a>
 
-    <a href="{{ path('app_categorie_crud_edit', {'id': categorie.id}) }}">edit</a>
+	<a href="{{ path('app_categorie_crud_edit', {'id': categorie.id}) }}">edit</a>
 
-    {{ include('categorie_crud/_delete_form.html.twig') }}
+	{{ include('categorie_crud/_delete_form.html.twig') }}
 {% endblock %}

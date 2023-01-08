@@ -1,13 +1,31 @@
 {% extends 'layouts/base.html.twig' %}
 
-{% block title %}Safer Biens
-{% endblock %}
-
 {% block body %}
 	<main
 		id="main">
+
 		{#Intro Single #}
 		{{ include('categorie/partials/single.html.twig')}}
+		<div class="jumbotron">
+			<div class="container">
+				{{ form_start(form) }}
+				<div class="form-row">
+					<div class="col">
+						{{ form_row(form.prix) }}
+					</div>
+					<div class="col">
+						{{ form_row(form.localisation) }}
+					</div>
+					<div class="col">
+						{{ form_row(form.motCle) }}
+					</div>
+					<div class="col">
+						<button class="btn btn-success">Rechercher</button>
+					</div>
+				</div>
+				{{ form_end(form) }}
+			</div>
+		</div>
 		{#Affichage des Biens #}
 		{{ include('categorie/partials/show.html.twig')}}
 	</main>
