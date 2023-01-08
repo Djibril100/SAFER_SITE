@@ -11,9 +11,17 @@
 				<div class="row">
 					{% for bien in categorie.biens %}
 						<div class="col-md-4">
-							<div class="card-box-a card-shadow">
+							<div class="card-box-a card-shadow" style="width:100%; height: 400px;">
 								<div class="img-box-a">
-									<img src="{{asset('assets/img/property-1.jpg')}}" alt="" class="img-a img-fluid">
+									{% set str1 = "assets/img/" %}
+									{% set str2 = bien.reference %}
+									{% set str3 = ".jpg" %}
+									{% set image = str1 ~ str2 ~ str3 %}
+									
+									<div style="width: 100%; height: 100%;">
+										<img src="{{asset(image)}}" style="width: 100%; height: 100%;" onerror="this.src='{{asset('assets/img/property-1.jpg')}}'">
+									</div>
+								
 								</div>
 								<div class="card-overlay">
 									<div class="card-overlay-a-content">

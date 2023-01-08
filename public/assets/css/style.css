@@ -2180,3 +2180,12 @@ footer .copyright-footer {
 footer .credits {
   font-size: 14px;
 }
+
+/*--------------------------------------------------------------
+# Faire en sorte que l'image prenne tout le div
+--------------------------------------------------------------*/
+
+.full-width {
+  width: 100%;
+  height: 100%;
+}
