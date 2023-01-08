@@ -12,6 +12,10 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
+/*
+    ce controller permet à un user de créer son compte (Controlleur utilisé pour la création de compte)
+*/
+
 class RegistrationController extends AbstractController
 {
     #[Route('/register', name: 'app_register')]

@@ -10,6 +10,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * Controlleur de gestion des utilisateurs (Affichage, modification, suppression)
+ */
+
 #[Route('/user')]
 class UserController extends AbstractController
 {

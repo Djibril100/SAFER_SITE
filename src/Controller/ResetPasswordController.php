@@ -20,6 +20,10 @@ use SymfonyCasts\Bundle\ResetPassword\Controller\ResetPasswordControllerTrait;
 use SymfonyCasts\Bundle\ResetPassword\Exception\ResetPasswordExceptionInterface;
 use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
 
+/**
+ * Utilisation de reset-password bundle pour reinitialiser le mot de passe
+ */
+
 #[Route('/reset-password')]
 class ResetPasswordController extends AbstractController
 {

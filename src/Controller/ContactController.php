@@ -12,31 +12,18 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ContactController extends AbstractController
 {
+    /*
+    La methode index prend en parametre : un objet "CategorieRepository"
+    Cette methode sera execute lors de l'appel de la route "app_contact"
+    Cette methode nous retourne : 
+        - 'categories' qui nous est utile lorsque l'on souhaite connaitre l'ensemble des categorie (par exemple dans le nav) 
+*/
     #[Route('/contact', name: 'app_contact')]
     public function index(CategorieRepository $categorieRepository): Response
     {
         return $this->render('contact/index.html.twig', [
             'current_menu' => 'contact',
             'categories' => $categorieRepository->findAll()
-        ]);
-    }
-
-    #[Route('/new', name: 'app_contact_crud_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, ContactRepository $contactRepository): Response
-    {
-        $contact = new Contact();
-        $form = $this->createForm(ContactType::class, $contact);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $contactRepository->save($contact, true);
-
-            return $this->redirectToRoute('app_contact_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('contact_crud/new.html.twig', [
-            'contact' => $contact,
-            'form' => $form,
         ]);
     }
 }
