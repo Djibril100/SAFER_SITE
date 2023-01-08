@@ -10,6 +10,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/*
+    Ce controller a été generer automatiquement à l'aide de commande "symfony console make:crud"
+    Cette classe permet de creer, editer, voir et supprimer des contacts
+*/
+
 #[Route('admin/contact')]
 class ContactCrudController extends AbstractController
 {

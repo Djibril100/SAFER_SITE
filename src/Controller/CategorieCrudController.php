@@ -10,6 +10,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/*
+    Ce controller a été generer automatiquement à l'aide de commande "symfony console make:crud"
+    Cette classe permet de creer, editer, voir et supprimer des categories
+*/
+
 #[Route('admin/categorie')]
 class CategorieCrudController extends AbstractController
 {

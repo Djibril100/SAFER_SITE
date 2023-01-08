@@ -11,6 +11,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Knp\Component\Pager\PaginatorInterface;
 
+/*
+    Ce controller a été generer automatiquement à l'aide de commande make:crud
+    Cette classe permet de creer, editer, voir et supprimer des biens
+*/
 
 #[Route('admin/bien')]
 class BienCrudController extends AbstractController
