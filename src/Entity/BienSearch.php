@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+/*L'entité BienSearch */
 
 class BienSearch
 {

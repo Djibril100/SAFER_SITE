@@ -7,6 +7,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
+/*L'entité Catégorie possede : 
+    - id
+    - nom
+    - collection de biens
+*/
+
 #[ORM\Entity(repositoryClass: CategorieRepository::class)]
 class Categorie
 {
