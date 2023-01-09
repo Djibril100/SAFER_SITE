@@ -8,6 +8,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
+/*Formulaire pour demander à reinitialiser le mot de passe*/
+
 class ResetPasswordRequestFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void

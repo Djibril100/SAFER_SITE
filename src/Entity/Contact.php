@@ -5,6 +5,16 @@ namespace App\Entity;
 use App\Repository\ContactRepository;
 use Doctrine\ORM\Mapping as ORM;
 
+/*L'entité Contact possede : 
+    - id
+    - nom	
+    - prenom	
+    - email	
+    - telephone	
+    - sujet	
+    - message	
+*/
+
 #[ORM\Entity(repositoryClass: ContactRepository::class)]
 class Contact
 {

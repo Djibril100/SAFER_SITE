@@ -6,6 +6,18 @@ use App\Repository\BienRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
+/*L'entité Bien possede : 
+    - id
+    - reference	
+    - intitule	
+    - descriptif	
+    - localisation	
+    - surface	
+    - prix	
+    - type	
+    - categorie
+*/
+
 #[ORM\Entity(repositoryClass: BienRepository::class)]
 class Bien
 {

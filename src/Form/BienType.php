@@ -7,6 +7,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/*Formulaire de l'entité bien*/
+
 class BienType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
