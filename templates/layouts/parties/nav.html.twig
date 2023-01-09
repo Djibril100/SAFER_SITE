@@ -37,8 +37,9 @@
 					<a class="nav-link {% if current_menu is defined and current_menu == 'contact' %} active {% endif %} " href="{{ path('app_contact') }}">Contact</a>
 				</li>
 
-				{% if 'ROLE_ADMIN' in app.user.roles %}
+				{% if app is defined and app.user is defined and app.user.roles is defined and 'ROLE_ADMIN' in app.user.roles %}
 					<li class="nav-item">
+						<!-- Affiche un lien vers la page d'administration uniquement si l'utilisateur a le rôle d'administrateur -->
 						<a class="nav-link" href="{{ path('admin') }}">Administration</a>
 					</li>
 				{% endif %}
